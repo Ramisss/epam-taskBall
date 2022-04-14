@@ -1,6 +1,6 @@
-package uz.epam.service;
+package uz.epam.balltask.service;
 
-import uz.epam.entity.Basket;
+import uz.epam.balltask.entity.Basket;
 
 public class BallService {
 

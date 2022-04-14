@@ -1,4 +1,4 @@
-package uz.epam.entity;
+package uz.epam.balltask.entity;
 
 import java.util.List;
 import java.util.StringJoiner;
