@@ -2,7 +2,7 @@ red 10
 yellow 20
 red 20
 green 30
-red 40
 red -30
+red 40
 
 

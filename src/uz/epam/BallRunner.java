@@ -31,6 +31,7 @@ public class BallRunner {
                     list.add(ball);
                 } else {
                     System.out.println("Wrong data type");
+                    System.err.println(line);
                     break;
                 }
                 basket.setBallList(list);
@@ -39,7 +40,7 @@ public class BallRunner {
 
             }
             System.out.println(ballService.amountColoredBalls(basket, "red"));
-            System.out.println("\n");
+//            System.out.println("\n");
             System.out.println(ballService.findWightOfBallsInBasket(basket));
 
 
