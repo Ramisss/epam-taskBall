@@ -1,11 +1,13 @@
 package uz.epam.balltask.service;
 
+import uz.epam.balltask.entity.Ball;
 import uz.epam.balltask.entity.Basket;
 
-public class BallService {
+public class BallService implements BallServiceImpl {
 
-    public static int findWightOfBallsInBasket(Basket basket) {
 
+    @Override
+    public int findWightOfBallsInBasket(Basket basket) {
         int weight = 0;
         int basketSize = basket.getBallList().size();
 
@@ -15,8 +17,8 @@ public class BallService {
         return weight;
     }
 
-    public static int amountColoredBalls(Basket basket, String colour) {
-
+    @Override
+    public int amountColoredBalls(Basket basket, String colour) {
         int amount = 0;
         int basketSize = basket.getBallList().size();
 
@@ -25,10 +27,12 @@ public class BallService {
                 amount++;
             }
         }
-
         return amount;
     }
 
+    public Ball createBall (Ball ball){
 
+        return null;
+    }
 
 }

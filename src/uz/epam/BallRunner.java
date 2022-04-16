@@ -3,6 +3,7 @@ package uz.epam;
 import uz.epam.balltask.entity.Ball;
 import uz.epam.balltask.entity.Basket;
 import uz.epam.balltask.service.BallService;
+import uz.epam.balltask.service.DataReader;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -12,32 +13,32 @@ import java.util.Scanner;
 
 public class BallRunner {
 
-
-
     public static void main(String[] args) throws IOException {
         Path path = Path.of("src/resources/ballTest.txt");
+        DataReader dataReader = new DataReader();
+        BallService ballService = new BallService();
+        Ball ball;
+        Basket basket = new Basket();
 
-
-        List<Ball> addToList = new ArrayList<>();
-        Basket basket = new Basket(addToList);
 
         try (Scanner scanner = new Scanner(path)) {
-            while (scanner.hasNext()) {
-                String colour = scanner.next();
-                Integer integer = scanner.nextInt();
+            List<Ball> list = new ArrayList();
 
-                if ((integer instanceof Integer) && (colour instanceof String)) {
-                    addToList.add(new Ball(integer, colour));
+            while (scanner.hasNextLine()) {
+                if (dataReader.validateOfBalls(scanner.nextLine())) {
+                    ball = dataReader.addBallCheckedLine(scanner.nextLine());
+                    list.add(ball);
+                } else {
+                    System.out.println("Wrong data type");
+                    break;
                 }
             }
+            basket.setBallList(list);
+            System.out.println(ballService.amountColoredBalls(basket, "red"));
+            System.out.println(ballService.findWightOfBallsInBasket(basket));
+
+
         }
-
-
-
-
-
-        System.out.println(BallService.findWightOfBallsInBasket(basket));
-        System.out.println(BallService.amountColoredBalls(basket, "red"));
 
 
     }

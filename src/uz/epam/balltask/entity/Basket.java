@@ -7,11 +7,13 @@ public class Basket {
 
    private List<Ball> ballList;
 
-
+    public Basket() {
+    }
 
     public Basket(List<Ball> ballList) {
         this.ballList = ballList;
     }
+
 
     public List<Ball> getBallList() {
         return ballList;
