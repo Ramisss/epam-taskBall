@@ -30,9 +30,4 @@ public class BallService implements BallServiceImpl {
         return amount;
     }
 
-    public Ball createBall (Ball ball){
-
-        return null;
-    }
-
 }

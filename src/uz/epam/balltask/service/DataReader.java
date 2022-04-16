@@ -5,13 +5,12 @@ import uz.epam.balltask.entity.Ball;
 public class DataReader {
 
 
-
     public DataReader() {
     }
 
 
-    public boolean validateOfBalls(String line) throws NumberFormatException {
-        String[] validate = line.split(" ");
+    public boolean validateOfBall(String line) throws NumberFormatException {
+        String[] validate = line.split("\\s");
 
         String checkColour = validate[0];
         String checkWeigh = validate[1];
@@ -26,7 +25,8 @@ public class DataReader {
         return false;
     }
 
-    public Ball addBallCheckedLine(String line) {
+    public Ball addCheckedBall(String line) {
+
         Ball ball = new Ball();
         String[] validate = line.split("\\s");
 
@@ -40,5 +40,7 @@ public class DataReader {
 
 
     }
+
+
 
 }

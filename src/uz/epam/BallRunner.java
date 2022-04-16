@@ -19,27 +19,30 @@ public class BallRunner {
         BallService ballService = new BallService();
         Ball ball;
         Basket basket = new Basket();
+        List<Ball> list = new ArrayList();
 
 
         try (Scanner scanner = new Scanner(path)) {
-            List<Ball> list = new ArrayList();
 
-            while (scanner.hasNextLine()) {
-                if (dataReader.validateOfBalls(scanner.nextLine())) {
-                    ball = dataReader.addBallCheckedLine(scanner.nextLine());
+            while (scanner.hasNext()) {
+                String line = scanner.nextLine();
+                if (dataReader.validateOfBall(line)) {
+                    ball = dataReader.addCheckedBall(line);
                     list.add(ball);
                 } else {
                     System.out.println("Wrong data type");
                     break;
                 }
+                basket.setBallList(list);
+
+
+
             }
-            basket.setBallList(list);
             System.out.println(ballService.amountColoredBalls(basket, "red"));
+            System.out.println("\n");
             System.out.println(ballService.findWightOfBallsInBasket(basket));
 
 
         }
-
-
     }
 }
